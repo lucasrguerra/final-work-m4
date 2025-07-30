@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 import { ReentrancyGuard } from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 interface ISimpleDEX {
@@ -22,8 +22,8 @@ contract SimpleDEX is ISimpleDEX, Ownable, ReentrancyGuard {
 
     event LiquidityAdded(uint256 amountA, uint256 amountB);
     event LiquidityRemoved(uint256 amountA, uint256 amountB);
-    event SwappedAForB(uint256 amountAIn, uint256 amountBOut);
-    event SwappedBForA(uint256 amountBIn, uint256 amountAOut);
+    event SwappedAforB(uint256 amountAIn, uint256 amountBOut);
+    event SwappedBforA(uint256 amountBIn, uint256 amountAOut);
 
     constructor(address _tokenA, address _tokenB) Ownable(msg.sender) {
         require(_tokenA != _tokenB, "Tokens must be different");
@@ -59,7 +59,7 @@ contract SimpleDEX is ISimpleDEX, Ownable, ReentrancyGuard {
         reserveA += amountAIn;
         reserveB -= amountBOut;
         require(tokenB.transfer(msg.sender, amountBOut), "TokenB transfer failed");
-        emit SwappedAForB(amountAIn, amountBOut);
+        emit SwappedAforB(amountAIn, amountBOut);
     }
 
     function swapBforA(uint256 amountBIn) external {
@@ -70,7 +70,7 @@ contract SimpleDEX is ISimpleDEX, Ownable, ReentrancyGuard {
         reserveB += amountBIn;
         reserveA -= amountAOut;
         require(tokenA.transfer(msg.sender, amountAOut), "TokenA transfer failed");
-        emit SwappedBForA(amountBIn, amountAOut);
+        emit SwappedBforA(amountBIn, amountAOut);
     }
 
     function getAmountOut(uint256 amountIn, uint256 reserveIn, uint256 reserveOut) internal pure returns (uint256) {
