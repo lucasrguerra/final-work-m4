@@ -1,0 +1,30 @@
+{
+  "name": "final-work-m4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "coverage": "npx hardhat coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasrguerra/final-work-m4.git"
+  },
+  "keywords": [],
+  "author": "Lucas Rayan Guerra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucasrguerra/final-work-m4/issues"
+  },
+  "homepage": "https://github.com/lucasrguerra/final-work-m4#readme",
+  "description": "",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@openzeppelin/hardhat-upgrades": "^3.9.1",
+    "hardhat": "^2.26.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0"
+  }
+}
