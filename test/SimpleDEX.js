@@ -11,8 +11,8 @@ describe("SimpleDEX", function () {
 
         TokenA = await ethers.getContractFactory("TokenA");
         TokenB = await ethers.getContractFactory("TokenB");
-        tokenA = await TokenA.connect(owner).deploy("5000");
-        tokenB = await TokenB.connect(owner).deploy("5000");
+        tokenA = await TokenA.connect(owner).deploy(5000);
+        tokenB = await TokenB.connect(owner).deploy(5000);
 
         SimpleDEX = await ethers.getContractFactory("SimpleDEX");
         dex = await SimpleDEX.connect(owner).deploy(tokenA.target, tokenB.target);
